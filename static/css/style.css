@@ -14,10 +14,15 @@ body {
 :root{
     --blue: #007bff;
     --orange: #fd7e14;
+    --light-grey: #46484b;
 }
 
 .text-blue{
   color: var(--blue);
+}
+
+.text-grey{
+  color: var(--light-grey);
 }
 
 .bg-orange{
@@ -188,9 +193,31 @@ h1{
 
 /* section footer  */
 
-.section-footer{
-  /* max-height: 50vh; */
-  display: block;
+
+/* recomendation pages css  */
+/* gynecologist */
+
+.gynecologist-recomendation-section{
+  padding-top: 80px;
+}
+
+.avatar{
+  width: 182px;
+  margin: auto;
+  padding: 6px 0 6px 0;
+}
+
+.avatar img{
+  width: 180px;
+    height: 189px;
+    border: none;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-text{
+  font-size: 14px;
+  line-height: 20px;
 }
 
 
@@ -233,3 +260,4 @@ h1{
     margin: 0;
   }
 }
+
