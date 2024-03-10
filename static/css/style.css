@@ -70,15 +70,7 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
 }
-
-.navbar-nav {
-  padding: 0 20px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 35px;
-}
-
-.navbar-nav .nav-item {
+ .navbar-nav .nav-item {
   margin-right: 20px;
 }
 

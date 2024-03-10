@@ -18,32 +18,37 @@
   </section>
   <!-- section ent-recomendation card rows  -->
   <section class="gynecologist-recomendation-list-section bg-light">
-    <div class="container">
-        <!-- row 1 card-1 -->
-        <div class="row card-row py-4">
+    {% for i in data %}
+  <div class="container">
+      <!-- row 1 card-1 -->
+
+      <div class="row card-row py-4">
             <div class="col card mb-3 border-0 px-2">
                 <!-- card  -->
                 <div class="card mb-3 border-0">
                     <!-- row  -->
                     <div class="row g-0">
-                        <div class="col-md-12 col-lg-3 pt-2">
-                            <div class="avatar">
-                                <img src="images/orthopedic-doc-2.jpg" class="img-fluid rounded-circle" alt="doctor image">
-                            </div>
-                        </div>
                         <!-- col  -->
                         <div class="card-body col-12 col-lg-6">
-                              <h5 class="card-title fw-semibold">Dr. Muhammad Riaz Chaudhary</h5>
-                              <p class="card-text text-grey mb-1">ENT Specialist, ENT Surgeon</p>
-                              <p class="card-text text-grey mb-1">MBBS, FCPS (ENT)</p>
+                              <h5 class="card-title fw-semibold">{{ i.Doctor_Name }}</h5>
+                              <p class="card-text text-grey mb-1">{{i.Specialty}}</p>
+                              <p class="card-text text-grey mb-1">{{i.Degree}}</p>
                               <div class="row">
+                                <div class="col col-md-3 py-3  border-end">
+                                  <p class="card-text mb-0"><small class="text-body-secondary">Wait Time</small></p>
+                                  <p class="card-text fw-semibold">15min</p>
+                                </div>
                                   <div class="col col-md-3 py-3  border-end">
-                                      <p class="card-text fw-semibold mb-1">11 Years</p>
-                                      <p class="card-text"><small class="text-body-secondary">Experience</small></p>
+                                      <p class="card-text mb-0"><small class="text-body-secondary">Experience</small></p>
+                                      <p class="card-text fw-semibold mb-1">{{i.Experience}}</p>
                                   </div>
-                                  <div class="col col-md-4 py-3 ps-4">
-                                      <p class="card-text fw-semibold mb-1 ps-1">100% (21)</p>
-                                      <p class="card-text ps-1"><small class="text-body-secondary">Satisfied Patience</small></p>
+                                  <div class="col col-md-3 py-3  border-end ">
+                                      <p class="card-text  mb-0"><small class="text-body-secondary">Satisfied Patience</small></p>
+                                      <p class="card-text fw-semibold mb-1 ps-1">{{i.Satisfaction_level}} ({{i.Total_patients}}) </p>
+                                  </div>
+                                  <div class="col col-md-3 py-3">
+                                    <p class="card-text ps-1 mb-0"><small class="text-body-secondary">Fee</small></p>
+                                    <p class="card-text fw-semibold mb-1 ps-1">{{i.Fee}}</p>
                                   </div>
                               </div>
                         </div>
@@ -51,8 +56,8 @@
                         <div class="col-md-3 col-12">
                             <div class="card border-0">
                                 <div class="card-body">
-                                  <h5 class="fw-medium">Location</h5>
-                                  <p class="text-grey">Health Bridge Hospital (DHA)</p>
+                                  <h5 class="fw-bold">Location</h5>
+                                  <p class="text-grey">{{i.Hospital_name}}</p>
                                 </div>
                             </div>
                         </div>
@@ -60,48 +65,8 @@
                 </div>
             </div>
         </div>
-        <!-- card-2 row  -->
-        <div class="row card-row py-4">
-          <div class="col card mb-3 border-0 px-2">
-              <!-- card  -->
-              <div class="card mb-3 border-0">
-                  <!-- row  -->
-                  <div class="row g-0">
-                      <div class="col-md-12 col-lg-3 pt-2">
-                          <div class="avatar">
-                              <img src="images/orthopedic-doc-1.jpg" class="img-fluid rounded-circle" alt="doctor image">
-                          </div>
-                      </div>
-                      <!-- col  -->
-                      <div class="card-body col-12 col-lg-6">
-                        <h5 class="card-title fw-semibold">Dr. Sami Mumtaz</h5>
-                        <p class="card-text text-grey mb-1">ENT Specialist, ENT Surgeon</p>
-                        <p class="card-text text-grey mb-1">M.B.B.S, F.R.C.S (UK)</p>
-                            <div class="row">
-                                <div class="col col-md-3 py-3  border-end">
-                                    <p class="card-text fw-semibold mb-1">11 Years</p>
-                                    <p class="card-text"><small class="text-body-secondary">Experience</small></p>
-                                </div>
-                                <div class="col col-md-4 py-3 ps-4">
-                                    <p class="card-text fw-semibold mb-1 ps-1">100% (21)</p>
-                                    <p class="card-text ps-1"><small class="text-body-secondary">Satisfied Patience</small></p>
-                                </div>
-                            </div>
-                      </div>
-                      <!-- col  -->
-                      <div class="col-md-3 col-12">
-                          <div class="card border-0">
-                              <div class="card-body">
-                                <h5 class="fw-medium">Location</h5>
-                                <p class="text-grey">Health Bridge Hospital (DHA)</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-  </section>
+    {% endfor %}
+</section>
+
 
 {% endblock %}
