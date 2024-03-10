@@ -1,8 +1,6 @@
 from flask import Flask, render_template
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.sqlite3'
-app.config['SECRET_KEY'] = "random string"
 
 
 @app.route("/")
@@ -12,7 +10,6 @@ def hello_world():
 
 @app.route("/orthopedic")
 def ortho():
-
     return render_template("orthopedic_recommendation.html", title="orthopedic")
 
 
