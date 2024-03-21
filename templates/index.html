@@ -159,9 +159,7 @@
                 <img src="{{ url_for('static', filename='images/Diabetologist.png') }}" alt="Diabetologist" style="width: 70px; height: 70px; border: none;">
               </div>
               <h4 class="p-2 text-center d-flex justify-content-center">Diabetologist</h4>
-             <form action="{{ url_for('diabetes') }}" method="POST">
-            <button type="submit" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</button>
-        </form>
+             <a href="{{url_for('diabetes')}}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
             </div>
           </div>
         </div>
@@ -171,7 +169,7 @@
   </section>
 
   <!-- section-footer -->
-  <section class="section-footer bg-blue pb-0 mb-0">
+  <section class="section-footer  pb-0 mb-0">
     <footer class="footer mb-0">
       <div class="footer-content p-3">
         <p class="text-center p-3 m-0">&copy; 2023 Doctor Recommendation System By BC200405595. All Rights Reserved.</p>
