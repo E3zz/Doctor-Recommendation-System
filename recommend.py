@@ -3,9 +3,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
+
 class recommended_doctors:
     def __init__(self):
-        # Define connection string
+        # connection string
         self.connection_string = "mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/"
         self.db_operations = DatabaseOperations(self.connection_string)
 
@@ -42,9 +43,9 @@ class recommended_doctors:
             y_pred = model.predict(X_test)
             recommended_doctors = df.iloc[X_test.index[y_pred]]
             recommended_doctors = recommended_doctors[recommended_doctors['Number_Of_Patients'] >= 100]
-            data = recommended_doctors[['Doctor_Name', 'Specialty', 'Experience', 'Number_Of_Patients', 'Fees', 'Degree',
-                                        'Satisfaction_level', 'Hospital_Name', 'Waiting']]
+            data = recommended_doctors[
+                ['Doctor_Name', 'Specialty', 'Experience', 'Number_Of_Patients', 'Fees', 'Degree',
+                 'Satisfaction_level', 'Hospital_Name', 'Waiting']]
             return data.to_dict('records')
         else:
             return None
-
