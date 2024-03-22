@@ -7,10 +7,11 @@ cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 cache.init_app(app)
 
 
-def recommendations():  # This function is used to get the recommended doctors
-    doc_recommender = g.recommeded_doctors()
-    g.data = doc_recommender.get_recommended_doctors()
-    return g.data
+def recommendations():
+    if 'doc_recommender' not in g:
+        g.doc_recommender = recommended_doctors()  # Assuming recommended_doctors is a class or function
+    data = g.doc_recommender.get_recommended_doctors()
+    return data
 
 
 @app.route("/")
