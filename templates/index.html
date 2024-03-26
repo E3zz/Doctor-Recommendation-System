@@ -34,6 +34,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#services">Services</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('feedback') }}">Feedback</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -85,21 +88,12 @@
   </section>
 
   <!-- section specialties  -->
-  <section id="services" class="section-recomendation bg-light">
+ <section id="services" class="section-recomendation bg-light">
     <div class="container">
-      <!-- row  -->
-      <div class="row">
-        <div class="container">
           <div class="specialties-content">
             <h2 class="text-blue fw-bolder text-center">Specialties We Recommend</h2>
           </div>
-        </div>
-      </div>
       <!-- row -->
-      <div class="row">
-        <!-- col  -->
-        <!-- <di class="col"> -->
-        <!-- cards row  -->
         <div class="row card-row">
           <!-- card 1 -->
           <div class="card" style="width: 18rem;">
@@ -109,15 +103,15 @@
               </div>
 
               <h4 class="p-2 text-center">Gynecologist</h4>
-               <a href="{{ url_for('gyn') }}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
+              <a href="{{ url_for('gyn') }}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
             </div>
           </div>
           <!-- card 2 -->
           <div class="card" style="width: 18rem;">
             <div class="card-body d-flex flex-column justify-content-center p-4">
-              <div class="d-flex justify-content-center p-3 m-3">
-                <img src="{{ url_for('static', filename='images/dermatologist.png') }}" alt="dermatologist" style="width: 70px; height: 70px; border: none;">
-                </div>
+              <div  class="d-flex justify-content-center p-3 m-3">
+                <img src="{{ url_for('static', filename='images/dermatologist.png') }}"  alt="gynecologist" style="width: 70px; height: 70px; border: none;">
+              </div>
               <h4 class="p-2 text-center">Dermatologist</h4>
               <a href="{{url_for('dermatologist')}}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
             </div>
@@ -126,10 +120,10 @@
           <div class="card" style="width: 18rem;">
             <div class="card-body d-flex flex-column justify-content-center p-4">
               <div  class="d-flex justify-content-center p-3 m-3">
-                <img src="{{ url_for('static', filename='images/pediatrics.png') }}" alt="pediatrics" style="width: 70px; height: 70px; border: none;">
+                <img src="{{ url_for('static', filename='images/pediatrics.png') }}" alt="dermatologist" style="width: 70px; height: 70px; border: none;">
               </div>
               <h4 class="p-2 text-center">Pediatrician</h4>
-             <a href="{{ url_for('pediatrician') }}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
+              <a href="{{ url_for('pediatrician') }}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
             </div>
           </div>
           <!-- card 4 -->
@@ -145,8 +139,8 @@
           <!-- card 5 -->
           <div class="card" style="width: 18rem;">
             <div class="card-body d-flex flex-column justify-content-center p-4">
-              <div class="d-flex justify-content-center p-3 m-3">
-                <img src="{{ url_for('static', filename='images/ENT.png') }}" alt="ENT" style="width: 70px; height: 70px; border: none;">
+              <div  class="d-flex justify-content-center p-3 m-3">
+                <img src="{{ url_for('static', filename='images/ENT.png') }}"  alt="ENT" style="width: 70px; height: 70px; border: none;">
               </div>
               <h4 class="p-2 text-center">ENT</h4>
               <a href="{{url_for('ent')}}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
@@ -155,18 +149,29 @@
           <!-- card 6 -->
           <div class="card" style="width: 18rem;">
             <div class="card-body d-flex flex-column justify-content-center p-4">
-              <div  class="d-flex justify-content-center p-3 m-3">
+              <div class="d-flex justify-content-center p-3 m-3">
                 <img src="{{ url_for('static', filename='images/Diabetologist.png') }}" alt="Diabetologist" style="width: 70px; height: 70px; border: none;">
               </div>
               <h4 class="p-2 text-center d-flex justify-content-center">Diabetologist</h4>
-             <a href="{{url_for('diabetes')}}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
+              <a href="{{url_for('diabetes')}}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
+            </div>
+          </div>
+          <!-- card 7 -->
+          <div class="card" style="width: 18rem;">
+            <div class="card-body d-flex flex-column justify-content-center p-4">
+              <div class="d-flex justify-content-center p-3 m-3">
+                <img src="{{ url_for('static', filename='images/eye.png') }}" alt="Diabetologist" style="width: 70px; height: 70px; border: none;">
+              </div>
+              <h4 class="p-2 text-center d-flex justify-content-center">Eye Specialist</h4>
+              <a href="{{url_for('eye')}}" class="btn btn-primary border-orange rounded-pill p-2 px-4 mt-5">See Recommendation</a>
             </div>
           </div>
         </div>
-        <!-- </di> -->
-      </div>
+      <!-- row  -->
+
     </div>
   </section>
+
 
   <!-- section-footer -->
   <section class="section-footer  pb-0 mb-0">

@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, g
 from flask_caching import Cache
 from recommend import recommended_doctors
+from database import user_feedback
 
 app = Flask(__name__)
+db_operations = user_feedback("mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/")
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 cache.init_app(app)
 
@@ -65,6 +67,30 @@ def pediatrician():
     data = recommendations()
     pediatrician_doctors = [doctor for doctor in data if 'pediatrician' in doctor['Specialty'].lower()]
     return render_template("pediatrician_recommendation.html", data=pediatrician_doctors)
+
+
+@app.route("/Eye")
+@cache.memoize(100)
+def eye():
+    data = recommendations()
+    eye_doctors = [doctor for doctor in data if 'eye specialist' in doctor['Specialty'].lower()]
+    return render_template("eye_recommendation.html", data=eye_doctors)
+
+
+@app.route("/feedback", methods=['GET', 'POST'])
+def feedback():
+    # fetch data from the form and save it into the database
+    if request.method == 'POST':
+        print(request.form)  # Check if form data is being received correctly
+        name = request.form['name']
+        email = request.form['email']
+        feedback_text = request.form['message']
+        speciality = request.form['speciality']
+        db_operations.save_feedback(name, email, feedback_text, speciality)
+
+        return render_template("feedback.html", success=True)
+    # Logic for handling GET request
+    return render_template("feedback.html")
 
 
 if __name__ == "__main__":

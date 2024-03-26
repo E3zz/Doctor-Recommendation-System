@@ -50,6 +50,8 @@ body {
 }
 
 
+
+
 /* header  */
 
 .navbar{
@@ -164,6 +166,16 @@ h1{
 .btn:hover{
   background-color: var(--orange);
 }
+/* feedback section  */
+
+.feedback-section{
+  padding-top: 80px;
+}
+/* section footer  */
+.section-footer{
+  min-height: 50px;
+  padding:  10px;
+}
 
 /* section specialties  */
 
@@ -191,10 +203,18 @@ h1{
   margin: 0 auto;
 }
 
+
 .card h4 {
   font-size: 18px;
   margin-bottom: 10px;
 }
+#parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This will make the container take up the full height of the viewport */
+}
+
 .fw-bolder {
   color:#1F6F8B;
 }
@@ -211,6 +231,9 @@ h1{
 
 /* recomendation pages css  */
 /* gynecologist */
+
+.d-flex align-items-center{}
+
 
 .gynecologist-recomendation-section{
   padding-top: 80px;
@@ -277,4 +300,5 @@ h1{
 
 
 }
+
 

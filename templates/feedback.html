@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <title>Feedback | Doctor Recommender</title>
+
+ <section class="feedback-section">
+    <div class="container">
+        <div class="row">
+            <div class="py-2">
+                <h2 class="text-bold">Give Feedback</h2>
+                <p class="text-grey">We would love to here from you. Your feedback is important to us.</p>
+            </div>
+        </div>
+        <!-- form  -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="py-5">
+                    {% if success %}
+                        <p>Thank you for your feedback!</p>
+                    {% else %}
+                    <form action="/feedback" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" aria-describedby="name">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email1" name="email" aria-describedby="email">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Speciality</label>
+                            <select class="form-select form-control" name="speciality" aria-label="Default select example">
+                                <option disabled selected>Select Speciality</option>
+                                <option value="Dermatologist">Dermatologist</option>
+                                <option value="Diabetologist">Diabetologist</option>
+                                <option value="ENT Specialist">ENT Specialist</option>
+                                <option value="Gynecologist">Gynecologist</option>
+                                <option value="Eye Specialist">Eye Specialist</option>
+                                <option value="Orthopedic">Orthopedic</option>
+                                <option value="Pediatrician">Pediatrician</option>
+                                <option value="Eye Specialist">Eye Specialist</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">FeedBack</label>
+                            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                          </div>
+                        <button type="submit" class="btn">Submit</button>
+                      </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+{% endblock %}
