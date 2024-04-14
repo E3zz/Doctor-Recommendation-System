@@ -8,7 +8,7 @@
         <div class="row">
             <div class="py-2">
                 <h2 class="text-bold">Give Feedback</h2>
-                <p class="text-grey">We would love to here from you. Your feedback is important to us.</p>
+                <p class="text-grey">We would love to hear from you. Your feedback is important to us.</p>
             </div>
         </div>
         <!-- form  -->
@@ -16,9 +16,15 @@
             <div class="col-12 col-md-6">
                 <div class="py-5">
                     {% if success %}
-                        <p>Thank you for your feedback!</p>
-                    {% else %}
-                    <form action="/feedback" method="POST">
+                       <strong>
+                           <h5>Thank you for your feedback!</h5>
+                       </strong>
+                    {% elif error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                    <form action="/feedback" method="POST" onsubmit="return validateForm()">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" name="name" aria-describedby="name">
@@ -29,7 +35,7 @@
                         </div>
                         <div class="mb-3">
                             <label  class="form-label">Speciality</label>
-                            <select class="form-select form-control" name="speciality" aria-label="Default select example">
+                            <select class="form-select form-control" name="speciality" id="speciality" aria-label="speciality">
                                 <option disabled selected>Select Speciality</option>
                                 <option value="Dermatologist">Dermatologist</option>
                                 <option value="Diabetologist">Diabetologist</option>
@@ -38,20 +44,40 @@
                                 <option value="Eye Specialist">Eye Specialist</option>
                                 <option value="Orthopedic">Orthopedic</option>
                                 <option value="Pediatrician">Pediatrician</option>
-                                <option value="Eye Specialist">Eye Specialist</option>
+                            </select>
+                        </div>
+                        <div class="mb-5">
+                            <label  class="form-label">Rating</label>
+                            <select class="form-select form-control" name="rating"  id="rating" aria-label="rating">
+                                <option disabled selected value="">Select Rating</option>
+                                <option value="Excellent">Excellent</option>
+                                <option value="Good">Good</option>
+                                <option value="Average">Average</option>
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label for="message" class="form-label">FeedBack</label>
+                            <label for="message" class="form-label">Feedback</label>
                             <textarea class="form-control" id="message" name="message" rows="3"></textarea>
                           </div>
                         <button type="submit" class="btn">Submit</button>
                       </form>
-                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
   </section>
 
+<script>
+    function validateForm() {
+        var speciality = document.getElementById("speciality").value;
+        var rating = document.getElementById("rating").value;
+
+        if (speciality === "Select Speciality" || rating === "") {
+            alert("Please select a speciality and rating.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 {% endblock %}

@@ -81,13 +81,26 @@ def eye():
 def feedback():
     # fetch data from the form and save it into the database
     if request.method == 'POST':
-        print(request.form)  # Check if form data is being received correctly
+        # Check if form data is being received correctly
         name = request.form['name']
         email = request.form['email']
         feedback_text = request.form['message']
         speciality = request.form['speciality']
-        db_operations.save_feedback(name, email, feedback_text, speciality)
-
+        rating = request.form['rating']
+        print(f"Name: {name}")
+        print(f"Email: {email}")
+        print(f"Feedback Text: {feedback_text}")
+        print(f"Speciality: {speciality}")
+        print(f"Rating: {rating}")
+        # Check if any of the required fields are empty and return a specific error message for each one
+        if not name:
+            return render_template("feedback.html", error="Name is required.", success=False)
+        if not email:
+            return render_template("feedback.html", error="Email is required.", success=False)
+        if not feedback_text:
+            return render_template("feedback.html", error="Feedback message is required.", success=False)
+        # Save the feedback to the database
+        db_operations.save_feedback(name, email, feedback_text, speciality, rating)
         return render_template("feedback.html", success=True)
     # Logic for handling GET request
     return render_template("feedback.html")
