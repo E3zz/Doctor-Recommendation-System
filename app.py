@@ -2,10 +2,8 @@ from flask import Flask, render_template, request, g
 from flask_caching import Cache
 from recommend import recommended_doctors
 from database import user_feedback
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
 app = Flask(__name__)
 db_operations = user_feedback("mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/")
