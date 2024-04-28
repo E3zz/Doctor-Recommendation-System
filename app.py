@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, g
 from flask_caching import Cache
 from recommend import recommended_doctors
 from database import user_feedback
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 db_operations = user_feedback("mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/")
@@ -107,4 +111,6 @@ def feedback():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False, port=5000)
+    # Use the PORT environment variable if available, otherwise use port 5000
+    port = int(os.getenv("PORT", 5000))
+    app.run(host='0.0.0.0', debug=False, port=port)
