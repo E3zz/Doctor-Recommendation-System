@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -49,9 +50,6 @@ body {
   border: 1px solid var(--orange);
 }
 
-
-
-
 /* header  */
 
 .navbar{
@@ -62,6 +60,7 @@ body {
   width: 100%;
   z-index: 1000;
 }
+
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -74,14 +73,8 @@ body {
 }
 
 .navbar-brand img {
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-}
-
-.navbar-brand img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     flex-shrink: 0;
 }
 
@@ -190,6 +183,7 @@ h1{
 .card-row{
   width: 80%;
   margin: auto;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -229,12 +223,7 @@ h1{
 /* section footer  */
 
 
-/* recomendation pages css  */
 /* gynecologist */
-
-.d-flex align-items-center{}
-
-
 .gynecologist-recomendation-section{
   padding-top: 80px;
 }
@@ -259,9 +248,8 @@ h1{
 }
 
 
- /* Responsive Styles */
-
- @media (max-width: 768px) {
+ /* Responsive Styles 600px */
+ @media (min-width: 768px) {
 
   .navbar-brand {
     padding: 0px;
@@ -270,13 +258,20 @@ h1{
     font-weight: 700;
   }
 
+  .navbar-brand img {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+
   .background-img {
     height: 50vh;
     width: 100%;
   }
 
-  h1{
-    font-size: 2rem;
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
   }
 
   .background-overlay{
@@ -291,14 +286,6 @@ h1{
     padding: 15px;
   }
 
-  .about-img-div img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0;
-  }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Reseting */
 * {
@@ -308,12 +295,12 @@ h1{
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+/* body{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .container{
     transform-style: preserve-3d;
@@ -338,8 +325,6 @@ body{
     transform-style: preserve-3d;
     transition: 0.9s ease;
 }
-
-
 
 .container .box .body .imgContainer{
     position: absolute;
@@ -386,6 +371,24 @@ body{
     letter-spacing: 1px;
 }
 
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .about-img-div img {
+        display: none; /* Hide the image on small screens */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    .background-img {
+        height: 50vh;
+        width: 100%;
+    }
 
 }
 

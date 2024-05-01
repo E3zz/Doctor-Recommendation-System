@@ -6,7 +6,7 @@ import os
 
 
 app = Flask(__name__)
-db_operations = user_feedback("mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/")
+db_operations = user_feedback("mongodb+srv://johnywick28:Cj%40123456@cluster0.d7ap99i.mongodb.net/")
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 cache.init_app(app)
 
@@ -89,11 +89,6 @@ def feedback():
         feedback_text = request.form['message']
         speciality = request.form['speciality']
         rating = request.form['rating']
-        print(f"Name: {name}")
-        print(f"Email: {email}")
-        print(f"Feedback Text: {feedback_text}")
-        print(f"Speciality: {speciality}")
-        print(f"Rating: {rating}")
         # Check if any of the required fields are empty and return a specific error message for each one
         if not name:
             return render_template("feedback.html", error="Name is required.", success=False)
@@ -106,6 +101,16 @@ def feedback():
         return render_template("feedback.html", success=True)
     # Logic for handling GET request
     return render_template("feedback.html")
+
+
+@app.route("/view_feedback", methods=['GET', 'POST'])
+@cache.memoize(1000)
+def view_feedback():
+    connection_string = "mongodb+srv://johnywick28:Cj%40123456@cluster0.d7ap99i.mongodb.net/" 
+    feedback_instance = user_feedback(connection_string)
+    feedbacks = feedback_instance.get_feedback()
+    return render_template("view.html", Feedbacks=feedbacks)
+
 
 
 if __name__ == "__main__":

@@ -32,6 +32,8 @@ class user_feedback:
             'rating': rating
         }
         self.feedback_collection.insert_one(feedback)
-    #    # def get_feedback(self):
-    #     pass
-    #     # return self.collection.find({})
+
+    def get_feedback(self):
+        feedback_db = self.client['feedback_db']
+        feedback_collection = feedback_db['Feedback']
+        return list(feedback_collection.find())
