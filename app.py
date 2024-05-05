@@ -44,7 +44,7 @@ def gyn():
 def ent():
     data = recommendations()
     ent_doctors = [doctor for doctor in data if 'ent' in doctor['Specialty'].lower()]
-    return render_template("ent_recommendation.html", data=ent_doctors)
+    return render_template("ENT_recommendation.html", data=ent_doctors)
 
 
 @app.route("/Diabetes")
