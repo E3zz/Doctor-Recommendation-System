@@ -1,9 +1,9 @@
 from pymongo import MongoClient
-
+import certifi
 
 class DatabaseOperations:
-    def __init__(self, connection_string):
-        self.client = MongoClient(connection_string)
+    def __init__(self, connection_string, tls=True):
+        self.client = MongoClient(connection_string, tls=tls)
         self.db = self.client['Drinfo']
         self.collections = ['Pediatrician', 'Orthopedic', 'Gynecologist', 'Eye', 'ENT', 'Diabetologist',
                             'Dermatologist']
@@ -33,7 +33,9 @@ class user_feedback:
         }
         self.feedback_collection.insert_one(feedback)
 
+
     def get_feedback(self):
-        feedback_db = self.client['feedback_db']
-        feedback_collection = feedback_db['Feedback']
-        return list(feedback_collection.find())
+        feedback_list = []
+        for document in self.feedback_collection.find():
+            feedback_list.append(document)
+        return feedback_list

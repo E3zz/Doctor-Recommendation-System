@@ -6,7 +6,7 @@ import os
 
 
 app = Flask(__name__)
-db_operations = user_feedback("mongodb+srv://johnywick28:Cj%40123456@cluster0.d7ap99i.mongodb.net/")
+db_operations = user_feedback("mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/")
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 cache.init_app(app)
 
@@ -103,15 +103,16 @@ def feedback():
     return render_template("feedback.html")
 
 
+
+
+
 @app.route("/view_feedback", methods=['GET', 'POST'])
-@cache.memoize(1000)
 def view_feedback():
-    connection_string = "mongodb+srv://johnywick28:Cj%40123456@cluster0.d7ap99i.mongodb.net/" 
-    feedback_instance = user_feedback(connection_string)
-    feedbacks = feedback_instance.get_feedback()
-    return render_template("view.html", Feedbacks=feedbacks)
+    feedback = db_operations.get_feedback()
+    print(feedback)
+    return render_template("view.html", feedback=feedback)
 
-
+ 
 
 if __name__ == "__main__":
     # Use the PORT environment variable if available, otherwise use port 5000
