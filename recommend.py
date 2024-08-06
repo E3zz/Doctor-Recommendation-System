@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 class recommended_doctors:
     def __init__(self):
         # connection string
-        self.connection_string = "mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/"
+        self.connection_string = Commection_String
         self.db_operations = DatabaseOperations(self.connection_string)
 
     def get_data(self):
