@@ -6,7 +6,7 @@ import os
 
 
 app = Flask(__name__)
-db_operations = user_feedback("mongodb+srv://yahyakhalid1272:Cj%40123456@mydb.kudw48y.mongodb.net/")
+db_operations = user_feedback("Connection String")
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 cache.init_app(app)
 
