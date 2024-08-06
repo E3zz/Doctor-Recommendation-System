@@ -82,7 +82,7 @@ for i in range(10, 150, 10):
 
 eye_specialist_data = combined_info.dropna(axis=0).copy()
 
-with pd.ExcelWriter('A:\FYP\Data Collection.xlsx') as writer:
+with pd.ExcelWriter('Location') as writer:
     Dermatologist_data.to_excel(writer, sheet_name='Dermatologist Data')
     gynecologist_data.to_excel(writer, sheet_name='Gynecologist Data')
     pediatrician_data.to_excel(writer, sheet_name='Pediatrician Data')
